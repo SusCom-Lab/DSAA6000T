@@ -1,0 +1,12 @@
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.venv/
+profile-results/
+models/
+*.safetensors
+pytorch_model*.bin
+*.pt
+*.pth
+.DS_Store
+
