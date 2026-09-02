@@ -110,40 +110,42 @@ consumer_stream.wait_event(data_ready)
 
 This creates an execution dependency without blocking the Python thread. Event timing still needs controlled streams and an otherwise quiet GPU: concurrent work in another stream can contend for GPU resources and change the measured latency.
 
-## Setup
+## Configuration
 
-From the repository root:
-
-```bash
-conda env create -f environment.yml
-conda activate dsaa6000t-week1
-python -m ipykernel install --user \
-  --name dsaa6000t-week1 \
-  --display-name "Python (DSAA6000T Week 1)"
-jupyter lab
-```
-
-Open `week1/llama8b_component_profiling.ipynb` and select the `Python (DSAA6000T Week 1)` kernel.
-
-The notebook asks each student for their own local model directory. Alternatively, set it before starting Jupyter:
+Create a private Week 1 configuration file:
 
 ```bash
-export LLAMA_MODEL_PATH=/path/to/your/llama-8b-checkpoint
-jupyter lab
+cd week1
+cp .env.example .env
 ```
 
-The path must contain a Hugging Face-compatible Llama checkpoint. Model acquisition and license acceptance are the student's responsibility. The notebook uses `local_files_only=True` and does not download weights.
+Edit `.env` and set at least:
+
+```dotenv
+LLAMA_MODEL_PATH=/path/to/your/llama-8b-checkpoint
+CUDA_VISIBLE_DEVICES=0
+```
+
+`CUDA_VISIBLE_DEVICES` contains physical GPU IDs. For example, `CUDA_VISIBLE_DEVICES=2`
+exposes only physical GPU 2, which the notebook addresses as `cuda:0`. Use `0,2` to expose
+two GPUs; `PROFILE_DEVICE=cuda:0` then selects the first GPU in that visible list.
+
+The notebook loads `.env` before importing PyTorch. Restart the notebook kernel after changing
+the visible GPU selection. If `.env` is absent or `LLAMA_MODEL_PATH` is empty, the notebook asks
+for the model directory interactively. The checkpoint must be Hugging Face-compatible; the
+notebook uses `local_files_only=True` and does not download weights.
 
 ## Outputs
 
-By default, the notebook creates `profile-results/` under the Jupyter working directory and writes:
+By default, the notebook creates `week1/profile-results/` and writes:
 
 - `llama8b_component_latency.csv`: raw component statistics for every tested sequence length;
 - `llama8b_component_latency.png`: component latency at the largest tested length;
 - `llama8b_latency_scaling.png`: latency scaling across sequence lengths;
 - `llama8b_decoder_layer_trace.json`: Chrome trace exported by `torch.profiler`.
 
-Set `PROFILE_OUTPUT_DIR` before starting Jupyter to choose another output directory.
+Set `PROFILE_OUTPUT_DIR` in `week1/.env` to choose another output directory. Relative paths are
+resolved from the `week1` directory.
 
 ## Interpreting the results
 

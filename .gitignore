@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 .venv/
+week1/.env
 profile-results/
 models/
 *.safetensors
@@ -9,4 +10,3 @@ pytorch_model*.bin
 *.pt
 *.pth
 .DS_Store
-
