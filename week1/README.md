@@ -130,10 +130,10 @@ CUDA_VISIBLE_DEVICES=0
 exposes only physical GPU 2, which the notebook addresses as `cuda:0`. Use `0,2` to expose
 two GPUs; `PROFILE_DEVICE=cuda:0` then selects the first GPU in that visible list.
 
-The notebook loads `.env` before importing PyTorch. Restart the notebook kernel after changing
-the visible GPU selection. If `.env` is absent or `LLAMA_MODEL_PATH` is empty, the notebook asks
-for the model directory interactively. The checkpoint must be Hugging Face-compatible; the
-notebook uses `local_files_only=True` and does not download weights.
+The notebook requires `.env` and loads it before importing PyTorch. Restart the notebook kernel
+after changing the visible GPU selection. `LLAMA_MODEL_PATH` must identify a Hugging
+Face-compatible checkpoint; the notebook uses `local_files_only=True` and does not download
+weights.
 
 ## Outputs
 
