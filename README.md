@@ -1,6 +1,6 @@
 # DSAA6000T Course Space
 
-This repository is the shared workspace for DSAA6000T course materials. It is intended for lecture notes, runnable notebooks, examples, and supporting resources that students can use and improve together.
+This repository is the shared workspace for DSAA6000T Cloud and AI Infrastructure Systems course materials. It is intended for lecture notes, runnable notebooks, examples, and supporting resources that students can use and improve together.
 
 ## Course contents
 
