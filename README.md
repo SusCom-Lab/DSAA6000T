@@ -1,6 +1,6 @@
 # DSAA 6000T: Cloud and AI Infrastructure Systems
 
-This repository is the shared workspace for DSAA 6000T: Cloud and AI Infrastructure Systems. It contains lecture notes, runnable notebooks, examples, and supporting resources that students can use and improve together.
+This repository provides implementations of and supplementary materials for the system cases introduced in the lectures. Interested students can reproduce these cases and explore their technical details independently.
 
 ## Course information
 
@@ -30,9 +30,9 @@ This repository is the shared workspace for DSAA 6000T: Cloud and AI Infrastruct
 | --- | --- | --- |
 | 1 | Profiling the components of a Llama 8B model | [Week 1 guide](week1/README.md) · [Jupyter notebook](week1/llama8b_component_profiling.ipynb) |
 
-## Sharing guidelines
+## How to use this repository
 
-- Put each week's materials in its corresponding `weekN/` directory.
-- Keep notebooks runnable from a clean environment.
-- Do not commit model weights, generated traces, profiling results, credentials, or personal filesystem paths.
-- Document any additional dependency required by an exercise.
+- Open the guide in the corresponding `weekN/` directory for each week's setup and instructions.
+- Run the notebooks and examples in your own environment, using private configuration files such as `.env` when instructed.
+- Keep model weights, generated traces, profiling results, credentials, and personal filesystem paths on your local system.
+- Student contributions or sharing through this repository are not expected.
