@@ -1,6 +1,6 @@
 # DSAA 6000T: Cloud and AI Infrastructure Systems
 
-This repository provides implementations of and supplementary materials for the system cases introduced in the lectures. Interested students can reproduce these cases and explore their technical details independently.
+This repository provides implementations and supplementary materials for the system cases introduced in the lectures. Interested students can reproduce these cases and explore their technical details independently.
 
 ## Course information
 
